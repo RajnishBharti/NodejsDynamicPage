@@ -1,0 +1,20 @@
+<%-include('./common/head.ejs')%>
+    <title><%=x.PageHeading%></title>
+  </head>
+  <body>
+    <%-include('./common/header.ejs')%>
+    <img src="/images/<%=x.PagePhoto%>" width="100%">
+
+    <div class="container">
+
+    <h1 class="mt-3 mb-3"><%=x.PageHeading%></h1>
+  
+
+    <%-x.PageDetails%>
+
+    
+  </div>
+
+    <%-include('./common/footer.ejs')%>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<%-include('./common/head.ejs')%>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <%-include('./common/header.ejs')%>
+
+
+    <div class="container">
+
+    <h1 class="mt-3 mb-3">Welcome to Our Dashboard</h1>
+   
+    <%if(sucess && sucess !=''){%>
+      <div class="alert alert-success" role="alert">
+         <%= sucess%>
+          </div>
+  <%}else if(err && err !=''){%>
+      <div class="alert alert-danger" role="alert">
+          <%= err%>
+      <%}%>
+  
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr>          
+          <th>Page Photo</th>
+          <th>PageUrl</th>
+          <th>Meta Description</th>
+          <th>Meta Keyword</th>
+          <th>heading(h1)</th>
+          <th>Page Details</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>   
+        <%x.forEach((y)=>{%>
+        <tr>
+          <td><img src="/images/<%=y.PagePhoto%>" width="100"></td>
+          <td><%=y.PageUrl%></td>
+          <td><%=y.PageMetaDescription%></td>
+          <td><%=y.PageMetaKeyword%></td>
+          <td><%=y.PageHeading%></td>          
+          <td><%=y.PageDetails.slice(0, 100)%></td>
+          <td><a href="/admin/pages/edit/<%=y.PageUrl%>">Edit</a></td>
+          <td><form method="POST" action="/admin/pages/delete/<%=y.PageUrl%>?_method=DELETE"><button type="submit">Delete</button>          </form>
+</td>
+        </tr>     
+        <%})%>
+      </tbody>
+    </table>
+  </div>
+
+    <%-include('./common/footer.ejs')%>
+  </body>
+</html>

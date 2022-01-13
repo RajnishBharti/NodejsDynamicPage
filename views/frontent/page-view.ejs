@@ -1,0 +1,25 @@
+<%-include('./common/head.ejs')%>
+<meta name="description" content="<%=x.PageMetaDescription%>" />
+<meta name="keywords" content="<%=x.PageMetaKeyword%>" />
+    <title><%=x.PageHeading%></title>
+  </head>
+  <body>
+    <%-include('./common/header.ejs')%>
+
+    <div class="container">
+      
+    <h1 class="mb-2 mt-2"><%=x.PageHeading%></h1>
+    <div class="row">
+     <%if(x.PagePhoto){%>
+      <div class="col-lg-12"><img src='/images/<%=x.PagePhoto%>' width="100%"></div>
+      <%}%>
+
+    <div class="col-lg-12"><%-x.PageDetails%></div>
+  </div>
+    
+     
+  </div>
+
+    <%-include('./common/footer.ejs')%>
+  </body>
+</html>
